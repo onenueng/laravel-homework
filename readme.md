@@ -20,7 +20,7 @@ Schema::create('tasks', function (Blueprint $table) {
 ```
 
 
-## ฺBootstrap navber
+## Bootstrap navber
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
