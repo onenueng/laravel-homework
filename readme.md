@@ -1,6 +1,3 @@
-
-github.com/koramit/fon-homework
-
 # Homework ครั้งที่ 1 - 2
 
 1 ให้สร้าง Form สำหรับกรอกข้อมูล Task
