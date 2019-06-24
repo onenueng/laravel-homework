@@ -14,6 +14,7 @@
     
 @endif
 
+
 <form class="my-4" action="/tasks" method="POST">
     @csrf
     <div class="form-row">
@@ -52,12 +53,12 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="radio" id="status" name="status" {{ isset($task) ? ($task->status == 1 ? 'checked' : '') : '' }}>
           <label class="form-check-label" for="status">Completed</label>
         </div>
-    </div>
+    </div> -->
 
     <!-- <div class="form-group">
         <div class="form-check">
