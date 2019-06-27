@@ -24,3 +24,7 @@ Route::patch('/tasks/{task}', 'TaskController@update');
 Route::get('/tasks/{id}','TaskController@edit');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
