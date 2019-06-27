@@ -15,7 +15,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('tasks.index')->with(['tasks' => \App\Task::all()]);
+        $types = \App\Type::all();
+
+        return view('tasks.index')->with(['tasks' => \App\Task::all(),'types'=>$types]);
+
     }
 
     /**
@@ -25,14 +28,15 @@ class TaskController extends Controller
      */
     public function create()
     {
+
          // return request()->all();
     $taskCreateValidateRules = [
-        'type' => 'required',
+        'type_id' => 'required',
         'name' => 'required'
     ];
 
     $taskCreateValidateMessages = [
-        'type.required' => 'ลงข้อมูล ประเภทงาน',
+        'type_id.required' => 'ลงข้อมูล ประเภทงาน',
         'name.required' => 'ลงข้อมูล <a style="cursor: pointer;" onclick="document.getElementById(' . "'name'" . ').focus()"><i>ชื่องาน</i> <b>ด้วยสิอีช่อ</b>'
     ];
 
@@ -85,10 +89,10 @@ class TaskController extends Controller
         return "Not found";
     }
     // return $task;
-    $types[]=["id"=>1, "name"=>"งานคณะฯ"];
-    $types[]=["id"=>2, "name"=>"งานตามชื่อตำแหน่ง"];
-    $types[]=["id"=>3, "name"=>"งานที่ได้รับมอบหมาย "];
-    $types[]=["id"=>4, "name"=>"งานเพื่อส่วนรวม "];
+    $types[]=["id"=>1, "name"=>"Support"];
+    $types[]=["id"=>2, "name"=>"Maintain"];
+    $types[]=["id"=>3, "name"=>"Consult"];
+    $types[]=["id"=>4, "name"=>"CSR"];
 
     $status[]=["id"=>0, "name"=>"Incomplete"];
     $status[]=["id"=>1, "name"=>"completed"];

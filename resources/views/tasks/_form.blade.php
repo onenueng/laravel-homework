@@ -20,17 +20,19 @@
     <div class="form-row">
         <!-- type -->
         <div class="form-group col-md-6">
-            <label for="type">ประเภทงาน</label>
-            <select class="form-control @error('type') is-invalid @enderror" name="type">
-            
-                <option value="" selected>เลือกซิจ๊ะ...</option>
-                <option value="1"  {{ old('type',isset($task) ? $task->type : '') == 1 ? 'selected' : '' }}>งานคณะฯ</option>
-                <option value="2"  {{ old('type',isset($task) ? $task->type : '') == 2 ? 'selected' : '' }}>งานตามชื่อตำแหน่ง</option>
-                <option value="3"  {{ old('type',isset($task) ? $task->type : '') == 3 ? 'selected' : '' }}>งานที่ได้รับมอบหมาย</option>
-                <option value="4"  {{ old('type',isset($task) ? $task->type : '') == 4 ? 'selected' : '' }}>งานเพื่อส่วนรวม</option>
- 
+            <label for="type_id">ประเภทงาน</label>
+            <select class="form-control @error('type_id') is-invalid @enderror" name="type_id">
+                <option value="" hidden><option>
+            @foreach($types as $type)
+                @if(old('type_id',isset($task)? $task->type_id: '')== $type['id'])
+                    <option value = "{{ $type['id'] }}" selected> {{ $type['name']}}</option>
+                @else   
+                    <option value = "{{ $type['id'] }}"> {{ $type['name']}}</option>
+                @endif
+            @endforeach
             </select>
-            @error('type')
+
+            @error('type_id')
             <small class="form-text text-danger">{{ $message }}</small>
             @enderror
         </div>

@@ -8,30 +8,35 @@ class Task extends Model
 {
     // white list
     protected $fillable = [
-        'type',
+        'type_id',
         'name',
         'detail',
         'status',
     ];
 
     public function getTypeName(){
-        switch($this->type){
+        switch($this->type_id){
             case 1:
-                return "งานคณะฯ";
+                return "Support";
                 break;
             case 2:
-                return "งานตามชื่อตำแหน่";
+                return "Maintain";
                 break;
             case 3:
-                return "งานที่ได้รับมอบหมาย";
+                return "Consult";
                 break;
             case 4:
-                return "งานเพื่อส่วนรวม";
+                return "Other";
                 break;
             default:
                 return "Unknown";
                 break;
         }
+
+    }
+
+    public function type(){
+        return $this->belongsTo(Type::class);
 
     }
 }
