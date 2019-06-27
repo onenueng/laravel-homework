@@ -36,7 +36,7 @@
                     <button
                         class="btn btn-sm btn-info"
                         onclick="document.getElementById('check-complate-{{ $task->id }}').submit()"
-                    >ทำเสร็จแล้ว</button>
+                    >ทำเสร็จแล้วจ้า</button>
                 @endif
             </td>
             <td>
