@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unique('email')->unique();
+            $table->foreign('email')
+                  ->reference('email')->on('password_resets')
+                  ->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->timestamps();
