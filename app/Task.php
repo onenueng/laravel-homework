@@ -39,4 +39,8 @@ class Task extends Model
         return $this->belongsTo(Type::class);
 
     }
+
+    public function users(){
+        return $this->belongsTo(user::class);
+    }
 }
